@@ -137,6 +137,10 @@
     font-family: 'Framework7 Icons' !important;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Roboto';
@@ -147,6 +151,15 @@ body {
     position: relative;
     background-color: #ffffff;
     background: radial-gradient(circle at 10% 20%, rgb(163, 175, 243) 0%, rgb(220, 182, 232) 100.2%);
+    transition: transform 0.15s ease-in;
+}
+
+body.scrollable.has-bar {
+    transform: scaleY(0.95) translateY(-3vh);
+}
+
+body:not(.scrollable).has-bar {
+    transform: scaleY(0.95) translateY(-5vh);
 }
 
 body:not(.scrollable) {
@@ -155,6 +168,8 @@ body:not(.scrollable) {
 
 body.scrollable {
     overflow-y: auto;
+    scroll-behavior: smooth;
+    /* -webkit-overflow-scrolling: touch; */
 }
 
 body.no-frame {
@@ -213,6 +228,16 @@ body.no-frame #lumia-screen {
 
 .tabbar.toolbar-bottom {
     height: 60px;
+}
+
+.tabbar {
+    transition: transform 0.15s ease-in;
+    transform: translateY(-15px);
+}
+
+body:not(.has-bar) .tabbar,
+body.clearfix .tabbar {
+    transform: translateY(0);
 }
 
 .tabbar .toolbar-inner {
@@ -299,6 +324,8 @@ body.no-frame #lumia-screen {
 
 .lumia-screen.scrollable {
     overflow-y: auto;
+    scroll-behavior: smooth;
+    /* -webkit-overflow-scrolling: touch; */
 }
 
 #lumia-back {
@@ -417,6 +444,10 @@ body.no-frame #lumia-screen {
 .d-flexc {
     display: flex;
     flex-direction: column;
+}
+
+.d-none {
+    display: none;
 }
 
 .fp-flex {
